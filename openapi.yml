@@ -16,7 +16,7 @@ info:
 
 tags:
   - name: Saved Objects
-    description: They are dashboards, visualizations, etc
+    description: APIs for managing dashboards, visualizations, saved search, etc
 
 paths:
   /{type}/{id}:
