@@ -27,18 +27,21 @@ paths:
       parameters:
       - name: type
         in: path
+        required: true
         schema:
           type: string
       - name: id
         in: path
+        required: true
         schema:
           type: string
       responses:
         '200':
+          description: success 
           content:
             application/json:
               schema:
-                type: objetc
+                type: object
                 properties:
                   id:
                     type: string
@@ -82,7 +85,7 @@ paths:
   /_bulk_create:
     post:
       tags:
-      - Saved Object
+      - Saved Objects
       description: Bulk create saved objects
       parameters:
       - name: overwrite
