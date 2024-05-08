@@ -91,7 +91,7 @@ paths:
           type: boolean
           description: overwrite existing
           example: true
-      - name: workspaces: 
+      - name: workspaces
         in: query
         schema: 
           type: array
