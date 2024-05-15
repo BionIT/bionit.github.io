@@ -14,7 +14,7 @@ paths:
     get:
       tags:
         - saved objects
-      summary: retrieve a single saved object by type and id.
+      summary: Retrieve a single saved object by type and id.
       parameters:
       - $ref: '#/components/parameters/id'
       - $ref: '#/components/parameters/type'
@@ -34,16 +34,10 @@ paths:
     post:
       tags:
         - saved objects
-      summary: Create a saved object
+      summary: Create a new saved object with type and id.
       parameters:
         - $ref: '#components/parameters/type'
-        - in: path
-          name: id
-          required: false
-          name: id
-          description: Unique id of the saved object.
-          schema:
-            type: string
+        - $ref: '#components/parameters/id'
         - in: query
           name: overwrite
           description: If set to true, will overwrite the existing saved object with same type and id.
@@ -60,20 +54,45 @@ paths:
               properties:
                 attributes:
                   type: object
+                  description: The metadata of the saved object to be created, and the object is not validated.
                 migrationVersion:
                   type: object
+                  description: The information about the migrations that have been applied to this saved object to be created.
                 references:
+                  description: List of objects that describe other saved objects the created object references. 
                   type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      type:
+                        type: string
                 initialNamespaces:
+                  description: Namespaces that this saved object exists in. This attribute is only used for multi-namespace saved object types.
                   type: array
+                  items:
+                    type: string
                 workspaces:
                   type: array
+                  items:
+                    type: string
+                  description: Workspaces that this saved object exists in.
       responses:
         '200':
+          description: The creation request is successful
           content:
             application/json:
               schema:
                 type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/400_bad_request'
 components:
   parameters:
     type:
@@ -90,3 +109,22 @@ components:
       required: true
       schema:
         type: string
+  schemas:
+    400_bad_request:
+      title: Bad request
+      type: object
+      required:
+        - error
+        - message
+        - statusCode
+      properties:
+        error:
+          type: string
+          enum:
+            - Bad Request
+        message:
+          type: string
+        statusCode:
+          type: integer
+          enum:
+            - 400
