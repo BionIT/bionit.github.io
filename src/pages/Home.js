@@ -1,11 +1,19 @@
-import React from "react";
+import * as React from 'react';
+import Container from '@mui/material/Container';
+import MainContent from '../components/MainContent';
+import Latest from '../components/Latest';
+
 
 const Home = () => {
   return (
-    <div className="container">
-      <h1>Welcome to My Blog</h1>
-      <p>I write about AWS, React, and Software Engineering.</p>
-    </div>
+      <Container
+        maxWidth="lg"
+        component="main"
+        sx={{ display: 'flex', flexDirection: 'column', my: 16, gap: 4 }}
+      >
+        <MainContent />
+        <Latest />
+      </Container>
   );
 };
 

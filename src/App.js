@@ -1,19 +1,27 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Blog from "./pages/Blog";
-
+import About from './pages/About';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppTheme from './theme/AppTheme';
+import AppAppBar from './components/AppAppBar';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+    <AppTheme>
+    <CssBaseline enableColorScheme />
+    <AppAppBar />
+      <div className="container mt-4">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
       </Routes>
+      </div>
+      </AppTheme>
+      <Footer />
     </Router>
   );
 }
