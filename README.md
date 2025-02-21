@@ -78,3 +78,10 @@ https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html
  cdk deploy --all
 
 export AWS_REGION=us-east-2
+
+
+The error "exec /usr/local/bin/python: exec format error" inside ECS usually means that the container is trying to run a Python binary that was built for a different architecture than what the ECS instance supports.
+
+curl <prefix>.us-east-1.elb.amazonaws.com
+should return following for flask app
+Hello world!%                 
