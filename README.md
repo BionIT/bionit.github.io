@@ -68,3 +68,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## cdk
+cdk init app --language=typescript
+npm install @aws-cdk/aws-s3 @aws-cdk/aws-lambda
+https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html
+ cdk bootstrap
+ cdk synth
+ cdk deploy --all
+
+export AWS_REGION=us-east-2
