@@ -68,3 +68,20 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## cdk
+cdk init app --language=typescript
+npm install @aws-cdk/aws-s3 @aws-cdk/aws-lambda
+https://docs.aws.amazon.com/cdk/latest/guide/bootstrapping.html
+ cdk bootstrap
+ cdk synth
+ cdk deploy --all
+
+export AWS_REGION=us-east-2
+
+
+The error "exec /usr/local/bin/python: exec format error" inside ECS usually means that the container is trying to run a Python binary that was built for a different architecture than what the ECS instance supports.
+
+curl <prefix>.us-east-1.elb.amazonaws.com
+should return following for flask app
+Hello world!%                 
